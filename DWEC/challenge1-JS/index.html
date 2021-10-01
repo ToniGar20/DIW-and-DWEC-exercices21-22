@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Exercice 1</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
+    <body>
+
+        <input id="first-number"/>
+        <p>+</p>
+        <input id="second-number"/>
+        <br>
+        <br>
+        <button onclick="additionWeapon()">¡Calcula el resultado!</button>
+
+        <div>
+            <p id=result-text></p>
+        </div>
+
+        <script>
+            function additionWeapon(){
+                let a = parseInt(document.getElementById("first-number").value);
+                let b = parseInt(document.getElementById("second-number").value);
+                let result = a+b;
+                document.getElementById("result-text").innerHTML = `El resultado de la suma es ${result}.`;
+            }
+        </script>
+    </body>
+</html>
