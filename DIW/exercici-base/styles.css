@@ -1,0 +1,57 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgrey;
+}
+
+header {
+    background-color:rgba(106, 224, 28, 0.938);
+
+}
+
+header img {
+    margin-left: 3%;
+    position: relative;
+    top: 55px;
+}
+
+ul#menu {
+    display: inline-flex;
+    list-style: none;
+}
+
+ul#menu li {
+    position: relative;
+    top: -42px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 4%;
+    float: left;
+    margin-left: 20px;
+}
+
+div {
+    width: 950px;
+    margin-top: 6%;
+    margin-left: 3%;
+    border: 3px solid green;
+}
+
+#scissors {
+    position: absolute;
+}
+
+div>h1 {
+    /* indica el valor de la propietat position i més propietats, si fan falta */
+    color: white;
+    font-size: 2em;
+    position: absolute;
+    display: inline;
+    top: 460px;
+    left: 450px;
+    width:15em;
+    float:left;
+
+}
