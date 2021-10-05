@@ -26,15 +26,39 @@ function howManyA(){
     }
     document.getElementById("result-tag").innerHTML = counter + " /a-letters/ found at the string!";
 }
+
 //4
+
 //5
+
 //6
+
 //7
+
 //8
+function firstAndLastLetter(){
+    let a = document.getElementById("main-content").value;
+    let aPieces = a.split("");
+    document.getElementById("result-tag").innerHTML = 'The first letter is "' + aPieces[0] + '" and the last letter is " ' + aPieces[aPieces.length - 1] + '".';
+
+}
+
 //9
+function noSpaces(){
+    let a = document.getElementById("main-content").value;
+    document.getElementById("result-tag").innerHTML = 'String without spaces is: ' + a.replace(" ", "");
+}
+
 //10
+function spaceForMiddleDash(){
+    let a = document.getElementById("main-content").value;
+    document.getElementById("result-tag").innerHTML = 'String changing space for middle dash: ' + a.replace(" ", "-");
+}
+
 //11
+
 //12
+
 //13
 
 
