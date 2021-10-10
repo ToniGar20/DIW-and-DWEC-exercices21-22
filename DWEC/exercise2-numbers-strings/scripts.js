@@ -1,3 +1,10 @@
+/**
+ * Main comment ->
+ * Each function starts "a" variable to store information form html input
+ * Each functions ends with the .innerHTMl method
+ * In both cases, hard code re-use
+ */
+
 //1
 function emptyString(){
     let a = document.getElementById("main-content").value;
@@ -11,16 +18,16 @@ function emptyString(){
 //2
 function reversedString(){
     let a = document.getElementById("main-content").value;
-    document.getElementById("result-tag").innerHTML = a.split("").reverse().join("");
+    document.getElementById("result-tag").innerHTML = a.split("").reverse().join(""); // Reading the array from right to left
 }
 
 //3
 function howManyA(){
     let a = document.getElementById("main-content").value;
     let aPieces = a.split("");
-    let counter = 0;
+    let counter = 0; // Starting variable to use it on the function scope
     for (let i = 0; i < aPieces.length; i++) {
-        if(aPieces[i].match(/[aàáAÀÁ]/)){
+        if(aPieces[i].match(/[aàáAÀÁ]/)){ //Regex
             counter++;
         }
     }
@@ -31,14 +38,14 @@ function howManyA(){
 function stringBeforeA(){
     let a = document.getElementById("main-content").value;
     let aPieces = a.split("");
-    let newString = [];
-    let newStringResult = '';
+    let newString = []; // Starting variable to use it on the function scope
+    let newStringResult = ''; // Starting variable to use it on the function scope
     for (let i = 0; i < aPieces.length; i++) {
         if(aPieces[i].match(/[aàáAÀÁ]/)){
-            newStringResult = newString.join("");
+            newStringResult = newString.join(""); // Building the string if and "a" (or variation) is found
             break;
         } else {
-            newString.push(aPieces[i]);
+            newString.push(aPieces[i]); //If not "a" found, storing letters at the array
         }
     }
     document.getElementById("result-tag").innerHTML = newStringResult;
@@ -51,16 +58,16 @@ function firstAndLastAPositions(){
     let positions = [];
     for (let i = 0; i < aPieces.length; i++) {
         if(aPieces[i].match(/[aàáAÀÁ]/)){
-            positions.push(i+1);
+            positions.push(i+1); // Storing "a" positions into an array
         }
     }
-    if (positions.length < 1) {
+    if (positions.length < 1) { //If no "a" on the string
         document.getElementById("result-tag").innerHTML = "The are no 'a' at the string!"
-    } else if (positions.length == 1){
+    } else if (positions.length == 1){ // If just just "a" on the string
         document.getElementById("result-tag").innerHTML = "The position of the 'a' is " + positions[0];
-    } else if (positions.length > 1) {
-        document.getElementById("result-tag").innerHTML = "The position of the first 'a' is " + positions[0] + " and the position of the last 'a' is " + positions[(positions.length)-1];
+    } else if (positions.length > 1) { //If more than 1 "a on the string"
     }
+    document.getElementById("result-tag").innerHTML = "The position of the first 'a' is " + positions[0] + " and the position of the last 'a' is " + positions[(positions.length)-1];
 }
 
 //6
@@ -69,12 +76,12 @@ function deletingLA(){
     let aPieces = a.split("");
     for (let i = 0; i < aPieces.length; i++) {
         if(aPieces[i].match(/[aàáAÀÁ]/) && aPieces[i-1].match(/[lL]/)){
-            delete aPieces[i];
-            delete aPieces[i-1];
+            delete aPieces[i]; // deleting the "a"
+            delete aPieces[i-1]; // deleting the "l"
         }
     }
     let aModified = aPieces.join("");
-    if (aModified != a) {
+    if (aModified != a) { // Different output if string has changed
         document.getElementById("result-tag").innerHTML = aModified;
     } else {
         document.getElementById("result-tag").innerHTML = "Input and result are the same..."
@@ -109,7 +116,7 @@ function firstAndLastLetter(){
 //9
 function noSpaces(){
     let a = document.getElementById("main-content").value;
-    let aModified =  a.replace(" ", "");
+    let aModified =  a.replace(" ", ""); //replace space for nothing :D
     if (aModified != a) {
         document.getElementById("result-tag").innerHTML = aModified;
     } else {
@@ -120,7 +127,7 @@ function noSpaces(){
 //10
 function spaceForMiddleDash(){
     let a = document.getElementById("main-content").value;
-    let aModified =  a.replace(" ", "-");
+    let aModified =  a.replace(" ", "-"); //replace space for mid dash
     if (aModified != a) {
         document.getElementById("result-tag").innerHTML = aModified;
     } else {
@@ -133,21 +140,21 @@ function acronym(){
     let a = document.getElementById("main-content").value;
     let aPieces = a.split("");
     let acronymWord = [];
-    acronymWord.push(aPieces[0]);
-    let finalAcronym = '';
+    acronymWord.push(aPieces[0]); // Storing first letter
+    let finalAcronym = ''; // Variable to print the final result
     for (let i = 0; i < aPieces.length; i++) {
         if(aPieces[i] == " "){
-            acronymWord.push(aPieces[i+1]);
+            acronymWord.push(aPieces[i+1]); // If space is found, the next letter is grabbed (even it is a space too...)
         }
     }
-    finalAcronym = acronymWord.join("").toUpperCase();
+    finalAcronym = acronymWord.join("").toUpperCase(); // Building it as acronym
     document.getElementById("result-tag").innerHTML = finalAcronym;
 }
 
 //12
 function emailValidation(){
     let a = document.getElementById("main-content").value;
-    if(a.match(/@[A-Za-z]{3,}.*\.(org|net|com)/)){
+    if(a.match(/@[A-Za-z]{3,}.*\.(org|net|com)/)){ // Regex
         document.getElementById("result-tag").innerHTML = "The email is correct";
     } else {
         document.getElementById("result-tag").innerHTML = "Not valid email. Enter a correct domain with @ and .org, .net or .com ending";
@@ -184,12 +191,12 @@ function roundADouble(){
 //16
 function doubleDecimals(){
     let a = document.getElementById("main-content").value;
-    a = parseFloat(a.replace(",", "."));
-    document.getElementById("result-tag").innerHTML = "." + a.toString().split(".")[1];
+    a = parseFloat(a.replace(",", ".")); // Work to identify the two kind of doubles
+    document.getElementById("result-tag").innerHTML = "." + a.toString().split(".")[1]; // Casting the number to string to be able to split it again an just display the decimals
 }
 
 //17
 function div19And3Decimals() {
     let a = parseInt(document.getElementById("main-content").value);
-    document.getElementById("result-tag").innerHTML = Math.round((a / 19) * 1000) / 1000;
+    document.getElementById("result-tag").innerHTML = Math.round((a / 19) * 1000) / 1000; // Smoking some maths, don't know what I just did here
 }
