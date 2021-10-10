@@ -146,7 +146,12 @@ function acronym(){
 
 //12
 function emailValidation(){
-
+    let a = document.getElementById("main-content").value;
+    if(a.match(/@[A-Za-z]{3,}.*\.(org|net|com)/)){
+        document.getElementById("result-tag").innerHTML = "The email is correct";
+    } else {
+        document.getElementById("result-tag").innerHTML = "Not valid email. Enter a correct domain with @ and .org, .net or .com ending";
+    }
 }
 
 
@@ -176,11 +181,11 @@ function roundADouble(){
     document.getElementById("result-tag").innerHTML = Math.round(a);
 }
 
-//16 NOT WORKING
+//16
 function doubleDecimals(){
     let a = document.getElementById("main-content").value;
-    a.replace(",", ".");
-    document.getElementById("result-tag").innerHTML = "." + a.split(".")[1];
+    a = parseFloat(a.replace(",", "."));
+    document.getElementById("result-tag").innerHTML = "." + a.toString().split(".")[1];
 }
 
 //17
