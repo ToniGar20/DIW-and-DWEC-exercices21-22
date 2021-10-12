@@ -112,27 +112,21 @@ CONTAINER C06
   padding: 20px 40px;
   margin: 5px;
 }
-/********* ADD YOUR CODE  HERE **********/
 
 .c06 div:nth-child(1){
-  order: 1;
-
+  order: 2;
+  margin-bottom: auto;
 }
 .c06 div:nth-child(2){
-  order: 4;
-
+  order: 3;
+  margin-top: auto;
 }
 .c06 div:nth-child(3){
-  order: 3;
-
+  order: 4;
 }
 .c06 div:nth-child(4){
-  order: 2;
-
+  order: 1;
 }
-
-
-/********* END OF YOUR CODE **********/
 
 /**
 CONTAINER C07
@@ -145,9 +139,29 @@ CONTAINER C07
 }
 /********* ADD YOUR CODE  HERE **********/
 
+.c07 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
 
-
-
+.c07 div:nth-child(1){
+  flex: 3 1 180px;
+}
+.c07 div:nth-child(2){
+  flex: 1 1 auto;
+}
+.c07 div:nth-child(3){
+  margin-bottom: auto;
+  flex: 1 1 50px;
+}
+.c07 div:nth-child(4){
+  margin-bottom: auto;
+  flex: 1 1 50px;
+}
 
 /********* END OF YOUR CODE **********/
 
@@ -155,12 +169,21 @@ CONTAINER C07
 CONTAINER C08
 **/
 /********* ADD YOUR CODE  HERE **********/
+.c08 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+.c08 div:nth-child(9){
 
-
+}
 
 /********* END OF YOUR CODE **********/
 
 .c08 div {
   background-color: purple;
 }
+
+
