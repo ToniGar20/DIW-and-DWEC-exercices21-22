@@ -33,6 +33,7 @@ CONTAINER C01
 .c01 {
   display: flex;
   align-items: center;
+  /* flex-direction: row; Set by default :D */
   justify-content: center;
 }
 .c01 div {
@@ -44,7 +45,7 @@ CONTAINER C02
 **/
 .c02 {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Changing the main display */
   justify-content: center;
   align-items: center;
 
@@ -59,7 +60,7 @@ CONTAINER C03
 .c03 {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: start; /* This made the boxes start at the top */
   align-items: center;
 }
 .c03 div {
@@ -81,6 +82,7 @@ CONTAINER C04
 
 /**
 CONTAINER C05
+1 box need to wide the 50% of the width
 **/
 .c05 div {
   background-color: orangered;
@@ -102,6 +104,7 @@ CONTAINER C05
 
 /**
 CONTAINER C06
+margin-bottom and margin-top in "auto" value to send boxes to the top or the bottom container.
 **/
 .c06 {
   display: flex;
@@ -130,6 +133,8 @@ CONTAINER C06
 
 /**
 CONTAINER C07
+flex-grow usually gets values from 1 to 4 to fill the disponible space
+justify-content: left -> for the two boxes required. It means the global container has no attribute for it.
 **/
 .c07 div {
   background-color: cyan;
@@ -137,50 +142,52 @@ CONTAINER C07
   padding: 20px 40px;
   margin: 3px;
 }
-/********* ADD YOUR CODE  HERE **********/
 
 .c07 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  align-content: flex-start;
+  align-content: center;
   flex-wrap: wrap;
 }
 
 .c07 div:nth-child(1){
-  flex: 3 1 180px;
+  flex-basis: 180px;
+  justify-content: center;
 }
 .c07 div:nth-child(2){
-  flex: 1 1 auto;
+  flex-grow: 1;
+  justify-content: center;
 }
 .c07 div:nth-child(3){
-  margin-bottom: auto;
-  flex: 1 1 50px;
+  justify-content: left;
+  flex-basis: 100px;
 }
 .c07 div:nth-child(4){
-  margin-bottom: auto;
-  flex: 1 1 50px;
+  justify-content: left;
+  flex-basis: 105px;
 }
-
-/********* END OF YOUR CODE **********/
 
 /**
 CONTAINER C08
+flex-basis: to determine how much pixels shall get each box by default
+flex-basis: 100% -> to get all the width
 **/
-/********* ADD YOUR CODE  HERE **********/
 .c08 {
   display: flex;
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
 }
-
-.c08 div:nth-child(9){
-
+.c08 div:nth-child(2){
+  flex-basis: 87px;
 }
-
-/********* END OF YOUR CODE **********/
+.c08 div:nth-child(7){
+  flex-basis: 87px;)
+}
+.c08 div:nth-child(9){
+  flex-basis: 100%;
+}
 
 .c08 div {
   background-color: purple;
