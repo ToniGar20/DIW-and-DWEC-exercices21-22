@@ -148,23 +148,20 @@ justify-content: left -> for the two boxes required. It means the global contain
   flex-direction: row;
   align-items: center;
   align-content: center;
+  justify-content: left; /* Important for the second row. The first one is filled so this is not making noise */
   flex-wrap: wrap;
 }
 
 .c07 div:nth-child(1){
   flex-basis: 180px;
-  justify-content: center;
 }
 .c07 div:nth-child(2){
   flex-grow: 1;
-  justify-content: center;
 }
 .c07 div:nth-child(3){
-  justify-content: left;
   flex-basis: 100px;
 }
 .c07 div:nth-child(4){
-  justify-content: left;
   flex-basis: 105px;
 }
 
