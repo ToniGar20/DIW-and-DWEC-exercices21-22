@@ -74,7 +74,7 @@ CONTAINER C04
   display: flex;
   flex-direction: row;
   justify-content: left;
-  flex-wrap: wrap; /* This is what made the items not overflow the container */
+  flex-wrap: wrap; /* This is what made the items not overflow the container and fill the next row*/
 }
 .c04 div {
   background-color: blue;
