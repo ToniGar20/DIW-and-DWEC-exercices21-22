@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>3. Exercise of arrays</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="array-scripts.js"></script>
+    <style>
+        * {font-family: Verdana,serif; margin-top: 10px; }
+        .main-input { background-color: #ff9400; border:1px solid #000000; }
+        .event-buttons { background-color: #1f7ae0; border:1px solid black; }
+        .event-buttons button { margin-left: 15px; margin-top: 15px; margin-bottom: 15px; }
+        .result{ color:white; background-color: #000000; border:1px solid black; height: 80px; }
+        p, input, button {margin-left: 15px; margin-bottom: 15px; }
+        input { width: 500px; height:30px; }
+    </style>
+
+</head>
+<body>
+<div class="main-input">
+    <p>Introduce valores separados con comas para generar un Array</p>
+        <label><input id="main-content"/></label>
+</div>
+<div class="event-buttons">
+    <button onclick="separator()">1. $ separation</button>
+    <button onclick="concatenation()">2. Concatenation</button>
+    <button onclick="secondItemDeleted()">3. Second item deleted</button>
+    <button onclick="secondItemDeletedAndAddingNews()">4. Second item deleted and adding 2 more</button>
+    <button onclick="sortingArray()">5. Alphabetically order</button>
+    <button onclick="">6. Minor to major order</button>
+    <button onclick="">7. Major to minor order</button>
+    <button onclick="">8. Oder by major length</button>
+    <button onclick="">9. Array of lenghts</button>
+    <button onclick="separatedByMidDash()">10. Items separated by "-"</button>
+    <button onclick="">11. Acronym</button>
+    <button onclick="">12. Deleting if minor to 5 char length</button>
+    <button onclick="">13. Sum of the items with "foreach"</button>
+    <button onclick="">14. How many times "la" in the array</button>
+    <button onclick="">15. Sum of the items with "reduce"</button>
+    <button onclick="">16. Num max of array with foreach</button>
+    <button onclick="">17. </button>
+    <button onclick="">18. </button>
+</div>
+<div class="result">
+    <p><b>Result</b></p>
+    <p id="result-tag"></p>
+</div>
+</body>
+</html>>
