@@ -36,11 +36,44 @@ function secondItemDeletedAndAddingNews() {
 }
 
 //5
-function sortingArray() {
+function sortingArrayAlphabetically() {
     let newArray = document.getElementById("main-content").value.split(",").sort();
     document.getElementById("result-tag").innerHTML = newArray;
 }
 
+//6
+function sortingArrayMinorToMajor(){
+    let newArray = document.getElementById("main-content").value.split(",");
+    let minorToMajorOrder = (a,b) => {
+        return a-b;
+    }
+    newArray.sort(minorToMajorOrder)
+    document.getElementById("result-tag").innerHTML = newArray;
+}
+
+//7
+function sortingArrayMajorToMinor(){
+    let newArray = document.getElementById("main-content").value.split(",");
+    let minorToMajorOrder = (a,b) => {
+        return b-a;
+    }
+    newArray.sort(minorToMajorOrder)
+    document.getElementById("result-tag").innerHTML = newArray;
+}
+
+//8
+function orderByMajorLength() {
+    let newArray = document.getElementById("main-content").value.split(",");
+    let minorToMajorOrder = (a,b) => {
+        newArray.forEach(index, value, array){
+
+        }
+
+        return b-a;
+    }
+    newArray.sort(minorToMajorOrder)
+    document.getElementById("result-tag").innerHTML = newArray;
+}
 
 //10 NOT WORKING!
 function separatedByMidDash() {
