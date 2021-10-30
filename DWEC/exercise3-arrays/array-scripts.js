@@ -5,7 +5,7 @@ function separator() {
     let separation = (item, index, array) => {
         array[index] = item + "$"
     }
-        newArray.forEach(separation);
+        newArray.forEach(separation); //callback to the function previously defined
         document.getElementById("result-tag").innerHTML = newArray;
 }
 
@@ -16,7 +16,7 @@ function concatenation() {
     let concatenate = (item) => {
         chainWithTheArray += item;
     }
-    newArray.forEach(concatenate);
+    newArray.forEach(concatenate); //callback to the function previously defined
     document.getElementById("result-tag").innerHTML = chainWithTheArray;
 
 }
@@ -44,7 +44,7 @@ function sortingArrayAlphabetically() {
 //6
 function sortingArrayMinorToMajor(){
     let newArray = document.getElementById("main-content").value.split(",");
-    let minorToMajorOrder = (a,b) => {
+    let minorToMajorOrder = (a,b) => { //helper function. Quite important to sort in another way than not alphabetically
         return a-b;
     }
     newArray.sort(minorToMajorOrder)
@@ -54,7 +54,7 @@ function sortingArrayMinorToMajor(){
 //7
 function sortingArrayMajorToMinor(){
     let newArray = document.getElementById("main-content").value.split(",");
-    let minorToMajorOrder = (a, b) => {
+    let minorToMajorOrder = (a, b) => { //helper function. Quite important to sort in another way than not alphabetically
         return b-a;
     }
     newArray.sort(minorToMajorOrder)
@@ -64,7 +64,7 @@ function sortingArrayMajorToMinor(){
 //8
 function orderByMajorLength() {
     let newArray = document.getElementById("main-content").value.split(",");
-    let majorLength = (a, b) => {
+    let majorLength = (a, b) => { //helper function. Quite important to sort in another way than not alphabetically
         return b.length - a.length;
         }
     newArray.sort(majorLength)
@@ -74,14 +74,14 @@ function orderByMajorLength() {
 //9
 function arrayOfLengths(){
     let newArray = document.getElementById("main-content").value.split(",");
-    let newArrayLengths = newArray.map((item) => { return item.length; });
+    let newArrayLengths = newArray.map((item) => { return item.length; }); //.map always create a new array
     document.getElementById("result-tag").innerHTML = newArrayLengths;
 }
 
 //10
 function separatedByMidDash() {
     let newArray = document.getElementById("main-content").value.split(",");
-    document.getElementById("result-tag").innerHTML = newArray.toString().replaceAll(",","-");
+    document.getElementById("result-tag").innerHTML = newArray.toString().replaceAll(",","-"); //easy replace
 }
 
 //11
@@ -90,13 +90,14 @@ function acronym() {
     let newArrayAcronym = newArray.map((item) => {
         return item.split("")[0].toUpperCase()
     });
+    // new array for each array item, grabbing just first word. After it, .toString() and replacing.
     document.getElementById("result-tag").innerHTML = newArrayAcronym.toString().replaceAll(",", "");
 }
 
 //12
 function deletingMinorOf5Length() {
     let newArray = document.getElementById("main-content").value.split(",");
-    document.getElementById("result-tag").innerHTML = newArray.filter((item) => {
+    document.getElementById("result-tag").innerHTML = newArray.filter((item) => { //filter use
         return item.length >= 5;
     });
 }
@@ -105,7 +106,7 @@ function deletingMinorOf5Length() {
 function sumItemsForEach() {
     let newArray = document.getElementById("main-content").value.split(",");
     let total = 0;
-    newArray.forEach( value => { total += parseInt(value); });
+    newArray.forEach( value => { total += parseInt(value); }); //addition of each value of the array. Important to cast it into number (parseInt)
     document.getElementById("result-tag").innerHTML = total;
 }
 
@@ -114,7 +115,7 @@ function laInArray() {
     let newArray = document.getElementById("main-content").value.split(",");
     let counter = 0;
     newArray.find( (item) => {
-        if (item === "la" || item === "La" || item === "LA" || item === "lA") {
+        if (item === "la" || item === "La" || item === "LA" || item === "lA") { //here is the logic
             counter ++;
         }
     });
@@ -130,8 +131,8 @@ function sumItemsReduce() {
 //16
 function maxNum() {
     let newArray = document.getElementById("main-content").value.split(",");
-    let max = Number.MIN_SAFE_INTEGER;
-    document.getElementById("result-tag").innerHTML = newArray.forEach( value => {
+    let max = Number.MIN_SAFE_INTEGER; // starting the minimum int to compare
+    document.getElementById("result-tag").innerHTML = newArray.forEach( value => { //important to cast into type int
         if (parseInt(value) > max) {
             max = parseInt(value);
         }
@@ -140,7 +141,7 @@ function maxNum() {
 }
 
 //17
-function arrayRestructuring() {
+function arrayRestructuring() { // with so many splices! (could be arranged into 1 line)
     let newArray = document.getElementById("main-content").value.split(",");
     if (newArray.length < 3) {
         document.getElementById("result-tag").innerHTML = "Introducir al menos 3 valores";
@@ -160,7 +161,7 @@ function capCuaArray() {
     if (newArray.length < 3) {
         document.getElementById("result-tag").innerHTML = "Debes enviar al menos 3 números para realizar la operación";
     } else {
-        newArray.splice(newArray.length, 0, newArray[2], newArray[1], newArray[0]).splice(0, 3);
+        newArray.splice(newArray.length, 0, newArray[2], newArray[1], newArray[0]).splice(0, 3); // logic of what is required
         document.getElementById("result-tag").innerHTML = newArray;
     }
 }
