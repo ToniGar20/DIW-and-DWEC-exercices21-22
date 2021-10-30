@@ -78,9 +78,10 @@ function arrayOfLengths(){
     document.getElementById("result-tag").innerHTML = newArrayLengths;
 }
 
-// 10 NOT WORKING! //
+//10
 function separatedByMidDash() {
     let newArray = document.getElementById("main-content").value.split(",");
+    document.getElementById("result-tag").innerHTML = newArray.toString().replaceAll(",","-");
 }
 
 //11
@@ -111,7 +112,13 @@ function sumItemsForEach() {
 //14
 function laInArray() {
     let newArray = document.getElementById("main-content").value.split(",");
-
+    let counter = 0;
+    newArray.find( (item) => {
+        if (item === "la" || item === "La" || item === "LA" || item === "lA") {
+            counter ++;
+        }
+    });
+    document.getElementById("result-tag").innerHTML = counter.toString();
 }
 
 //15
@@ -148,7 +155,7 @@ function arrayRestructuring() {
 }
 
 //18
-function capCuaArray(){
+function capCuaArray() {
     let newArray = document.getElementById("main-content").value.split(",");
     if (newArray.length < 3) {
         document.getElementById("result-tag").innerHTML = "Debes enviar al menos 3 números para realizar la operación";
