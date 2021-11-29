@@ -56,7 +56,8 @@ document.addEventListener("click", (e) => {
 
         case 4:
             result = "";
-            // Sorting array with higher height
+
+            // Sorting array with higher number of tours won
             infoCiclistes.sort((a,b) => { return b.tours-a.tours; });
             console.log(infoCiclistes);
 
@@ -72,6 +73,7 @@ document.addEventListener("click", (e) => {
             break;
 
         case 5:
+            //Function that returns the object with just 1 different value.
             function addTour(item) {
                 return {
                     "nom": item.nom,
@@ -82,6 +84,7 @@ document.addEventListener("click", (e) => {
                 };
             }
 
+            //Map with the previous function
             let allWinners = infoCiclistes.map(addTour);
             console.log(allWinners);
 
@@ -99,7 +102,8 @@ document.addEventListener("click", (e) => {
             break;
 
         case 6:
-            function oldCyclist(item){
+            // Helper function to pass an object and get just items if their age is > 30 given a Date String value
+        function oldCyclist(item){
                 function getAge(dateString) {
                     let today = new Date();
                     let birthDate = new Date(dateString);
@@ -130,6 +134,7 @@ document.addEventListener("click", (e) => {
             break;
 
         case 7:
+            // Helper function to pass an object and get his age give a Date String
         function majorthan30(item){
             function getAge(dateString) {
                 let today = new Date();
@@ -153,6 +158,7 @@ document.addEventListener("click", (e) => {
             break;
 
         case 8:
+            //New item
         let newCyclist = {
             "nom": "Josh Pantano",
             "born":  "30/11/1995",
@@ -161,6 +167,7 @@ document.addEventListener("click", (e) => {
             "wins": 9
         };
 
+        //Insertion with splice
         infoCiclistes.splice(1,0,newCyclist);
         console.log(infoCiclistes);
 
@@ -175,8 +182,9 @@ document.addEventListener("click", (e) => {
             }
             document.getElementById("result-tag").innerHTML = result;
             break;
-        case 9:
 
+        case 9:
+            // Helper function to pass an object and get his age give a Date String
         function cyclistsAge(item){
             function getAge(dateString) {
                 let today = new Date();
@@ -190,7 +198,7 @@ document.addEventListener("click", (e) => {
             }
             return getAge(item.born);
         }
-            // Sorting array
+            // Sorting array calling the method above to sort by age
             infoCiclistes.sort((a,b) => { return cyclistsAge(b)-cyclistsAge(a) });
             console.log(infoCiclistes);
 
