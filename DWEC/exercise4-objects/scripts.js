@@ -1,10 +1,19 @@
+/* Impoting object values */
 import {equip_ciclista} from './objects.js';
 
+/**
+ * Listener!
+ * When a click on a button is done at the HTML, the "id" is grabbed, so a switch is executing different code depending on button value
+ */
 document.addEventListener("click", (e) => {
     let buttonId = parseInt(e.target.id);
+
+    //Storing just the piece of the object needed
     let infoCiclistes = equip_ciclista["ciclistes"];
 
+    //Initializing variable to insert function result at HTML
     let result;
+
     switch (buttonId) {
 
         case 1:
