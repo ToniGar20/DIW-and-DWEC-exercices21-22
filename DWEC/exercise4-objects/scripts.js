@@ -153,11 +153,57 @@ document.addEventListener("click", (e) => {
             break;
 
         case 8:
+        let newCyclist = {
+            "nom": "Josh Pantano",
+            "born":  "30/11/1995",
+            "height": 1.88,
+            "tours": 2,
+            "wins": 9
+        };
 
+        infoCiclistes.splice(1,0,newCyclist);
+        console.log(infoCiclistes);
+
+        result = "";
+            for (let i = 0; i < parseInt(infoCiclistes.length); i++) {
+                result += infoCiclistes[i]["nom"];
+                if (i === parseInt(infoCiclistes.length)-1) {
+                    result += ".";
+                } else {
+                    result += ", "
+                }
+            }
+            document.getElementById("result-tag").innerHTML = result;
             break;
-
         case 9:
 
+        function cyclistsAge(item){
+            function getAge(dateString) {
+                let today = new Date();
+                let birthDate = new Date(dateString);
+                let age = today.getFullYear() - birthDate.getFullYear();
+                let m = today.getMonth() - birthDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+                return age;
+            }
+            return getAge(item.born);
+        }
+            // Sorting array
+            infoCiclistes.sort((a,b) => { return cyclistsAge(b)-cyclistsAge(a) });
+            console.log(infoCiclistes);
+
+            result = "";
+            for (let i = 0; i < parseInt(infoCiclistes.length); i++) {
+                result += infoCiclistes[i]["nom"];
+                if (i === parseInt(infoCiclistes.length)-1) {
+                    result += ".";
+                } else {
+                    result += ", "
+                }
+            }
+            document.getElementById("result-tag").innerHTML = result;
             break;
 
     }
