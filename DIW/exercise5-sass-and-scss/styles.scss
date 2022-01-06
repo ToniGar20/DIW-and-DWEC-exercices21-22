@@ -1,0 +1,23 @@
+/* SCSS */
+
+/*
+How to execute with terminal:
+  sass styles.scss:styles.css --watch
+
+- Make full path from terminal situation
+- If sucessfull, new css will be created
+- Link from HTML .css file
+*/
+
+/* SASS */
+/*
+Remains the same but without opening/closing keys and semicolons
+ */
+
+$font-stack: Helvetica, sans-serif;
+$primary-color: blue;
+
+body {
+  font: 70% $font-stack;
+  color: $primary-color;
+}

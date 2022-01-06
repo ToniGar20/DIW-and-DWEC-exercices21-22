@@ -1,0 +1,19 @@
+/* SCSS */
+/*
+How to execute with terminal:
+  sass styles.scss:styles.css --watch
+
+- Make full path from terminal situation
+- If sucessfull, new css will be created
+- Link from HTML .css file
+*/
+/* SASS */
+/*
+Remains the same but without opening/closing keys and semicolons
+ */
+body {
+  font: 70% Helvetica, sans-serif;
+  color: blue;
+}
+
+/*# sourceMappingURL=styles.css.map */
