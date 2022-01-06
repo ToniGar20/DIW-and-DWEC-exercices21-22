@@ -11,9 +11,11 @@ How to execute with terminal:
 /*
 Remains the same but without opening/closing keys and semicolons
  */
+/* Importing a second color from another scss */
 body {
   font: 70% Helvetica, sans-serif;
   color: blue;
+  background-color: yellow;
 }
 
 /*# sourceMappingURL=styles.css.map */
