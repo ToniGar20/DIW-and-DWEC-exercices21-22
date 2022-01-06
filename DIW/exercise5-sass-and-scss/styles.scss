@@ -4,24 +4,29 @@
 How to execute with terminal:
   sass styles.scss:styles.css --watch
 
-- Make full path from terminal situation
-- If sucessfull, new css will be created
-- Link from HTML .css file
+1.Make full path from terminal situation
+2.If successful, new css will be created
+3.Link from HTML .css file
+4.Do not interrupt the watch until any further change is needed
 */
 
 /* SASS */
-/*
-Remains the same but without opening/closing keys and semicolons
- */
+/* Remains the same but without opening/closing keys and semicolons*/
 
 /* Importing a second color from another scss */
 @import "import-test";
 
+/* Importing footer styles for partial document (_partial.scss)*/
+@import "partial";
+
+/* Variables */
 $font-stack: Helvetica, sans-serif;
 $primary-color: blue;
 
+/* Main rules for body */
 body {
   font: 70% $font-stack;
   color: $primary-color;
   background-color: $secondary-color;
 }
+
