@@ -1,5 +1,7 @@
 /* Impoting object values */
 import {equip_ciclista} from './objects.js';
+let infoCiclistes = equip_ciclista["ciclistes"];
+console.log(infoCiclistes);
 
 /**
  * Listener!
@@ -10,6 +12,7 @@ document.addEventListener("click", (e) => {
 
     //Storing just the piece of the object needed
     let infoCiclistes = equip_ciclista["ciclistes"];
+    console.log(infoCiclistes);
 
     //Initializing variable to insert function result at HTML
     let result;
