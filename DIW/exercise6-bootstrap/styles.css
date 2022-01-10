@@ -1,5 +1,0 @@
-/* CSS to test the override styles from bootstrap */
-
-.table > tbody {
-    background-color: yellow;
-}

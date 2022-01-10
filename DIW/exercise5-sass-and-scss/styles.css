@@ -1,7 +1,7 @@
 /* SCSS */
 /*
 How to execute with terminal:
-  sass styles.scss:styles.css --watch
+  sass styles.scss:template.css --watch
 
 1.Make full path from terminal situation
 2.If successful, new css will be created
@@ -27,4 +27,4 @@ body {
   background-color: yellow;
 }
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=template.css.map */
