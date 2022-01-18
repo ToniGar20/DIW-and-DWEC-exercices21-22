@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Fetch different status</title>
+</head>
+<body>
+    <p>Fetch different status</p>
+</body>
+<script>
+    // cas = 0 : The URL of API is correct. Request type is CORS
+    let url = []
+    url.push('https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/1')
+
+    // cas = 1 : The request is correct but it's not JSON as response.json() isn't used
+    //   => Fetch error:  Unexpected token L in JSON at position 0
+    url.push('../stuff/hello.txt')
+
+    // cas = 2 : The element doesn't exist at the server
+    url.push('https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/999')
+
+    // cas = 3 : Wrong server name
+    url.push('https://whateverlalalawhatever.com')
+
+    // cas = 4 : Wrong server and CORS ERROR
+    //   => "Fetch error, Failed to Fetch"
+    url.push('https://cifpfbmoll.eu')
+
+    // Grab any "cas"!
+    const cas = 0
+
+    fetch(url[cas])
+        .then(function (response) {
+            console.log('Response.status =', response.status)
+            console.log('Response.type =', response.type)
+            console.log('Response.ok =', response.ok)
+            return response.json()
+        })
+        .then(function (data) {
+            console.log('The data is:', data)
+        })
+        .catch(function (error) {
+            console.error('Error with fetch: ', error.message)
+        })
+</script>
+</html>

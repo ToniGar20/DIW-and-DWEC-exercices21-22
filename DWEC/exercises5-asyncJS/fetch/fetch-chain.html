@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Example 7: Callback Hell with Fetch!</title>
+</head>
+<body>
+<h1>Callback Hell</h1>
+<p>Chain 2 fetch call = hard maintenance code...</p>
+<img id="myImage">
+<p id="myText"></p>
+</body>
+<script>
+
+    /*
+     1st Fetch: Download JSON
+     2nd Fetch: Download BLOB of image
+    */
+
+    const url = 'https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/2';
+
+    // Fetch 1
+    fetch(url)
+        .then(response => response.json())
+        .then(json => {
+            //URL of image
+            const imageURL = json.img;
+            const textStuff = json.name;
+            document.getElementById("myText").innerHTML = textStuff;
+            // Fetch number 2
+            fetch(imageURL)
+                .then(response => response.blob())
+                .then(image => {
+                    var objectURL = URL.createObjectURL(image);
+                    document.getElementById("myImage").src = objectURL;
+                })
+                .catch(error => console.log("Error with asyncronus code", error))
+        });
+</script>

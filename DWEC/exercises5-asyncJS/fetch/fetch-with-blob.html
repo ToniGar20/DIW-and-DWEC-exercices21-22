@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Example</title>
+</head>
+<body>
+<p>Get an image and embed it in the DOM</p>
+<img id="myImage" src="" alt="The image" />
+</body>
+<script>
+    /**
+     * What is Blob?
+     * A Blob can be easily used as a URL for <a> , <img> or other tags, to show its contents.
+     */
+
+    let url = [];
+
+    // cas = 0 : local image
+    url.push('../stuff/logo.png');
+
+    // cas = 1 : remote image
+    url.push('https://raw.githubusercontent.com/classicoman2/fakeRESTserver/master/assets/image1.jpg');
+
+    // cas = 2 : CORS error of image
+    url.push('https://media.timeout.com/images/105744005/630/472/image.jpg');
+
+
+    // Use any cas!
+    const cas = 0;
+
+    fetch(url[cas])
+        .then(function (response) {
+            return response.blob();
+        })
+        .then(function (image) {
+            var objectURL = URL.createObjectURL(image);
+            document.getElementById('myImage').src = objectURL;
+        })
+        .catch(function (error) {
+            console.log('Error with the image fetch: ', error.message);
+        });
+</script>
+</html>
