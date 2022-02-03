@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Vue  3  CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Hello World</title>
+  <style>
+    .green-bg { background-color: green; color: white; }
+  </style>
+</head>
+<body>
+<div id="data">
+  <div v-bind:class="classBgColor">This is Vue</div>
+</div>
+</body>
+<script>
+  const app = {
+    data() {
+      return {
+        classBgColor: 'green-bg',
+      }
+    },
+  }
+  Vue.createApp(app).mount('#data')
+</script>
+</html>
