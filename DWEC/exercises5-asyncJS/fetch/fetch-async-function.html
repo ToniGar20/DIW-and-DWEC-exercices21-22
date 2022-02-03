@@ -24,5 +24,10 @@
     // Just .catch is necessary to get possible errors
     getData(myurl)
         .catch((error) => console.error("Error en Fetch:", error));
+    
+    // In case you want to show the json at HTML, easiest way is to store the function into a variable:
+    
+    const data = await getData(myurl);
+    
 </script>
 </html>
