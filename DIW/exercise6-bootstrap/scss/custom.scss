@@ -3,6 +3,11 @@
 // Overrides
 $body-color: magenta;
 $body-bg: #000;
+$font-stack: Arial, sans-serif;
+
+body {
+  font: 100% $font-stack
+;}
 
 
 // Option A: Include all of Bootstrap
