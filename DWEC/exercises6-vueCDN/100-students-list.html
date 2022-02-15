@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Vue  3  CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <title>Students List</title>
+</head>
+<body>
+<div id="app">
+  Name: <input id="name" type="text" v-model="studentName" />
+  Age: <input id="age" type="number" v-model="studentAge" />
+  <button v-on:click="saveStudent()">Guardar</button>
+  <h2>Students List:</h2>
+  <ol>
+    <li v-for="student in list" v-bind:key="student.id">
+      {{student.name}}: age {{student.age}}.
+      <button v-on:click="showStudent(student)">Show</button>
+      <button v-on:click="deleteStudent(student.id)">Delete</button>
+    </li>
+  </ol>
+  <!-- students placed here -->
+  <span v-if="currentStudent.length !== 0"> {{currentStudent.name}} have {{currentStudent.age}} years old. </span>
+</div>
+</body>
+<script>
+  const app = {
+    data() {
+      return {
+        // Generating placeholders for new entries
+        valueId: 0,
+        studentName: '',
+        studentAge: 0,
+        currentStudent: [ ],
+        list: [
+          { id: 1, name: 'Tom', age: 50 },
+          { id: 2, name: 'Mary', age: 13 },
+          { id: 3, name: 'Josh', age: 54 },
+          { id: 4, name: 'Toni', age: 33 }
+        ],
+      }
+    },
+    methods: {
+      // Delete student
+      deleteStudent(id) {
+        this.list = this.list.filter((element) => element.id !== id);
+      },
+
+      // Save data of student
+      saveStudent() {
+        // Push to the list
+        this.valueId++;
+        let student = {
+          id: this.valueId,
+          name: this.studentName,
+          age: this.studentAge,
+        }
+        this.list.push(student)
+      },
+
+      // Show student
+      showStudent(objectValues) {
+        this.currentStudent = objectValues;
+      },
+
+    },
+
+  }
+  Vue.createApp(app).mount('#app')
+</script>
+</html>
