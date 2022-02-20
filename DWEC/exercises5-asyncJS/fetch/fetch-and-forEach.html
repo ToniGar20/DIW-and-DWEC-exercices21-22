@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <p id="item"></p>
+
+</body>
+<script>
+    const url = 'https://jsonplaceholder.typicode.com/posts/100';
+
+    fetch(url, {
+        method: 'GET'
+    })
+    .then (response => response.json())
+    .then (json => {
+        console.log(json);
+        let content = '';
+        // Printing all the content of values of the array
+        Object.keys(json).forEach( key => {
+            content += json[key] + " ";
+        })
+        document.getElementById('item').innerHTML = content;
+    })
+
+
+</script>
+</html>
