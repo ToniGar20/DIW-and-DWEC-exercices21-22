@@ -10,14 +10,16 @@
 </head>
 <body>
 <div id="app">
-  Name: <input id="name" type="text" v-model="studentName" />
-  Age: <input id="age" type="number" v-model="studentAge" />
-  <button v-on:click="saveStudent()">Guardar</button>
+    Name: <input id="name" type="text" v-model="studentName" />
+    Age: <input id="age" type="number" v-model="studentAge" />
+    <button v-if="!onEdit" v-on:click="saveStudent()">Save</button>
+    <button v-if="onEdit" v-on:click="editStudent(editableStudentId)">Edition</button>
   <h2>Students List:</h2>
   <ol>
-    <li v-for="student in list" v-bind:key="student.id">
+    <li v-for="student in list">
       {{student.name}}: age {{student.age}}.
       <button v-on:click="showStudent(student)">Show</button>
+      <button v-on:click="oldValues(student)">Edit</button>
       <button v-on:click="deleteStudent(student.id)">Delete</button>
     </li>
   </ol>
@@ -30,7 +32,7 @@
     data() {
       return {
         // Generating placeholders for new entries
-        valueId: 0,
+        valueId: 4, // This is starting at 4 because there are already 4 items. Otherwise objects could have the same id and crud operations would broke or get crazy
         studentName: '',
         studentAge: 0,
         currentStudent: [ ],
@@ -40,6 +42,8 @@
           { id: 3, name: 'Josh', age: 54 },
           { id: 4, name: 'Toni', age: 33 }
         ],
+        editableStudentId: 0,
+        onEdit: false,
       }
     },
     methods: {
@@ -57,13 +61,37 @@
           name: this.studentName,
           age: this.studentAge,
         }
-        this.list.push(student)
+        this.list.push(student);
+
+        // Reseting to default values
+        this.studentName = "";
+        this.studentAge = "";
       },
 
       // Show student
       showStudent(objectValues) {
         this.currentStudent = objectValues;
       },
+
+      // Show values of the student at form inputs
+      oldValues(objectValues) {
+        this.studentName = objectValues.name;
+        this.studentAge = objectValues.age;
+        this.onEdit = true;
+        this.editableStudentId = objectValues.id;
+      },
+
+      // Storing the values at the form edition inputs
+      editStudent(id) {
+        let editedStudent = this.list.find( item => item.id === id);
+        editedStudent.name = this.studentName
+        editedStudent.age = this.studentAge
+        this.onEdit = false;
+
+        // Reseting to default values
+        this.studentName = "";
+        this.studentAge = 0;
+      }
 
     },
 
