@@ -11,22 +11,42 @@
 <p>Fetch with async - await</p>
 </body>
 <script>
-    const myurl = "https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/1";
+    let myObject = {name: 'Toni', lastname: 'García'};
+    const myUrl = "https://my-json-server.typicode.com/classicoman2/fakeRESTserver/characters/";
+    const mySettings = {
+        method: 'POST',
+        body: JSON.stringify(myObject),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    }
 
     // Async function
     // It means it's not necessary to use .then()
+    // Function for GET
     async function getData(url) {
         const response = await fetch(url);
-        const json = await response.json();
+        let json = await response.json();
         console.info("Data obtained:", json);
     }
 
     // Just .catch is necessary to get possible errors
-    getData(myurl)
+    getData(myUrl + '1')
         .catch((error) => console.error("Error en Fetch:", error));
-    
-    // In case you want to show the json at HTML, the easiest way is to store the function into a variable:
-    const data = await getData(myurl);
-    
+
+    // Calling function and storing info into a variable:
+    let data = getData(myUrl + '1');
+
+
+    // Function for PUT
+    async function putData(url, settings) {
+        const response = await fetch(url, settings);
+        const json = await response.json();
+        console.info("Data obtained:", json);
+    }
+
+    putData(myUrl, mySettings);
+
+
 </script>
 </html>
