@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+
+</body>
+<script>
+    const url = 'https://jsonplaceholder.typicode.com/posts/';
+
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            title: 'Toni García Post',
+            body: 'Ut aspernatur corporis harum nihil quis provident sequi\\nmollitia nobis aliquid molestiae\\nperspiciatis et ea nemo ab reprehenderit'
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        })
+        .catch(function (error) {
+            console.log('Error with Fetch:', error);
+        });
+</script>
+</html>
